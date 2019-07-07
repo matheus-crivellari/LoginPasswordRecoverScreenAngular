@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid py-5">
   <div class="row">
     <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-0">
 
@@ -7,16 +7,19 @@
           <div class="wrapper">
             <div class="login">
                 <form (submit)="$event.preventDefault()">
-                    <h2>Enter</h2>
+                    <h2 class="mb-2">Enter</h2>
                     <br>
-                    <input type="text" name="email" id="email" class="login-email mb-2">
-                    <input type="password" name="" id="" class="login-password mb-5">
-                    <a href="#">Password recover</a>
+                    <input placeholder="e-mail" type="email" name="email" id="email"   class="p-3 mb-3 login-email">
+                    <input placeholder="password" type="password" name="" id="password" class="p-3 login-password mb-5">
+                    <p>
+                        <a href="#">Password recover?</a>
+                    </p>
                     <br>
-                    <button class="btn btn-lg my-5">Enter</button>
+                    <button class="btn btn-lg mb-5">Enter</button>
                     <br>
-                    <small>This site is protected by reCAPTCHA and Google.</small>
-                    <small>
+                    <small class="my-0 py-0">This site is protected by reCAPTCHA and Google.</small>
+                    <br>
+                    <small class="my-0 py-0">
                       <a href="#">Privacy terms</a> and
                       <a href="#">Service terms</a>.
                     </small>
@@ -26,14 +29,14 @@
           <div class="wrapper">
             <div class="recover">
                 <form (submit)="$event.preventDefault()">
-                    <h2>Forgot password</h2>
+                    <h2 class="mb-3">Forgot password</h2>
                     <br>
-                    <p>
+                    <p class="mb-3">
                       Type your e-mail and we'll send you an e-mail telling
                       you how to recover it.
                     </p>
-                    <input type="text" name="email" id="email" class="recover-email mb-5">
-                    <p>Remembered your password? <a href="#">Enter</a></p>
+                    <input placeholder="e-mail" type="email" name="email" id="email"   class="p-3 mb-3 login-email">
+                    <p class="my-3">Remembered your password? <a href="#">Enter</a></p>
                     <br>
                     <button class="btn btn-lg my-5">Recover password</button>
                 </form>

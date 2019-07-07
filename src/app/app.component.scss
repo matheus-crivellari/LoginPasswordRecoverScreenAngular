@@ -1,12 +1,14 @@
 *{
     font-family: 'Varela Round', sans-serif !important;
     transition: .6s all ease-out;
+    -webkit-font-smoothing: antialiased !important;
 }
 
 html, body{
     width: 100%;
     height: 100%;
-    background: #e7e9eb !important;
+    background-color: #e5e7ea !important;
+    background: #e5e7ea !important;
 }
 
 div#login-wrapper{
@@ -16,8 +18,27 @@ div#login-wrapper{
     overflow: hidden;
     height: 536px;
 
+    @mixin gradient {
+        background: #b650f6;
+        background: linear-gradient(135deg,  #b650f6 0%,#7f6fef 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b650f6', endColorstr='#7f6fef',GradientType=1 );
+    }
+
+    small{
+        font-size: .7em;
+    }
+
+    a{
+        color: #59617f;
+        font-weight: bold;
+        border-bottom: 1px dotted;
+        font-size: 14px;
+        text-decoration: none;
+
+
+    }
+
     div.form-wrapper, div.message-wrapper{
-        pointer-events: none;
         position: absolute;
         box-sizing: border-box;
         top: 0;
@@ -30,20 +51,68 @@ div#login-wrapper{
     }
 
     div.form-wrapper{
+        pointer-events: none;
         width: 60%;
         left: 0;
         background-color: #fcfcfd;
         z-index: 1;
         color: #6e768f;
 
+        p{
+            font-size: 14px;
+        }
+
         h2{
-            color: #404a6c;
+            color: #59617f;
             font-family: 'Roboto', sans-serif !important;
+
+            &::after{
+                content: '';
+                position: relative;
+                display: block;
+
+                @include gradient;
+
+                width: 90px;
+                height: 4px;
+                margin: 0 auto;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
+                margin-top: 6px;
+            }
+        }
+
+        @mixin placeholder{
+            text-transform: uppercase;
+            color: #e7e8ec;
+            font-family: Arial;
+        }
+
+        form input{
+            border: 1px solid #e7e8ec;
+            background-color: white;
+            border-radius: 6px;
+
+            &::-webkit-input-placeholder { /* Edge */
+                @include placeholder;
+            }
+
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                @include placeholder;
+            }
+
+            &::placeholder {
+                @include placeholder;
+            }
         }
 
         div.recover{
             pointer-events: auto;
             transform: translate(100%,0);
+
+            button.btn{
+                width: 80%;
+            }
         }
 
         div.login{
@@ -54,18 +123,36 @@ div#login-wrapper{
         button.btn{
             width: 60%;
             border-radius: 50px;
-            font-size: 1em;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
             padding: 5%;
+            text-shadow: 2px 2px 0px #0000003d;
             text-transform: uppercase;
+
+            @include gradient;
+            box-shadow: 0 5px 30px 5px #bb4cf73a;
+
+            &:hover{
+                box-shadow: 0 5px 30px 5px #bc4cf785;
+            }
+
         }
     }
 
     div.message-wrapper{
         width: 40%;
         left: 60%;
-        background-color: #9b5ff3;
         z-index: 5;
         color: white;
+
+        @include gradient;
+        background-image: url(../assets/images/pattern_login.svg), linear-gradient(135deg,  #b650f6 0%,#7f6fef 100%);
+        background-blend-mode: overlay;
+        // background-repeat: no-repeat;
+        background-position: right;
+
+        transition: .6s all ease-out, .6s width ease-out;
 
         div.recover{
             transform: translate(100%,0);
@@ -117,6 +204,7 @@ div#login-wrapper{
 
         div.message-wrapper{
             left: 0;
+            background-position: left;
 
             div.recover{
                 transform: translate(0,0);
