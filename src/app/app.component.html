@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
   <div class="row">
-    <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-0">
+    <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 p-0 justify-content-center">
 
       <div id="login-wrapper" class="bg-light shadow-lg mt-5 bg-success">
         <div class="form-wrapper">
@@ -9,8 +9,12 @@
                 <form (submit)="$event.preventDefault()">
                     <h2 class="mb-2">Enter</h2>
                     <br>
-                    <input placeholder="e-mail" type="email" name="email" id="email"   class="p-3 mb-3 login-email">
-                    <input placeholder="password" type="password" name="" id="password" class="p-3 login-password mb-5">
+                    <div class="form-group">
+                        <input placeholder="e-mail" type="email" name="email" id="email"   class="form-control p-4 mb-3 login-email">
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="password" type="password" name="" id="password" class="form-control p-4 login-password mb-5">
+                    </div>
                     <p>
                         <a href="#">Password recover?</a>
                     </p>
@@ -35,7 +39,9 @@
                       Type your e-mail and we'll send you an e-mail telling
                       you how to recover it.
                     </p>
-                    <input placeholder="e-mail" type="email" name="email" id="email"   class="p-3 mb-3 login-email">
+                    <div class="form-group">
+                        <input placeholder="e-mail" type="email" name="email" id="email" class="form-control p-4 mb-3 login-email">
+                    </div>
                     <p class="my-3">Remembered your password? <a href="#">Enter</a></p>
                     <br>
                     <button class="btn btn-lg my-5">Recover password</button>
