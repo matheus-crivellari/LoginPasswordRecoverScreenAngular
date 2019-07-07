@@ -17,6 +17,7 @@ div#login-wrapper{
     height: 536px;
 
     div.form-wrapper, div.message-wrapper{
+        pointer-events: none;
         position: absolute;
         box-sizing: border-box;
         top: 0;
@@ -41,11 +42,21 @@ div#login-wrapper{
         }
 
         div.recover{
+            pointer-events: auto;
             transform: translate(100%,0);
         }
 
         div.login{
+            pointer-events: auto;
             transform: translate(0,0);
+        }
+
+        button.btn{
+            width: 60%;
+            border-radius: 50px;
+            font-size: 1em;
+            padding: 5%;
+            text-transform: uppercase;
         }
     }
 
