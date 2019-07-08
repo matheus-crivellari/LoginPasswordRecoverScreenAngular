@@ -107,6 +107,10 @@ div#login-wrapper{
                     @include placeholder;
                 }
 
+                &.is-valid{
+                    border-color: #28a745;
+                }
+
                 &.is-invalid{
                     border-color: #dc3545;
                 }

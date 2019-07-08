@@ -18,7 +18,10 @@
                             formControlName="email"
                             id="email"
                             class="form-control p-4 login-email"
-                            [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+                            [ngClass]="{
+                                'is-invalid': email.invalid && (email.dirty || email.touched),
+                                'is-valid': email.valid
+                            }"
                             autocomplete="false"
                             >
                             <small class="text-left invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">Invalid e-mail.</small>
@@ -31,7 +34,10 @@
                             formControlName="password"
                             id="password"
                             class="form-control p-4 login-password"
-                            [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+                            [ngClass]="{
+                                'is-invalid': password.invalid && (password.dirty || password.touched),
+                                'is-valid': password.valid
+                            }"
                             autocomplete="false"
                             >
                             <small class="text-left invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">Invalid password.</small>
@@ -40,7 +46,7 @@
                         <a [routerLink]="'/recover-passwd'">Password recover?</a>
                     </p>
                     <br>
-                    <button class="btn btn-lg mb-5">
+                    <button class="btn btn-lg mb-5" [disabled]="!loginForm.valid">
                         Enter
                     </button>
                     <br>
@@ -70,9 +76,12 @@
                             type="text"
                             placeholder="e-mail"
                             formControlName="email"
-                            id="email"
+                            id="recoverEmail"
                             class="form-control p-4 login-email"
-                            [ngClass]="{'is-invalid': recover.invalid && (recover.dirty || recover.touched)}"
+                            [ngClass]="{
+                                'is-invalid': recover.invalid && (recover.dirty || recover.touched),
+                                'is-valid': recover.valid
+                            }"
                             autocomplete="false"
                             >
                             <small class="text-left invalid-feedback" *ngIf="recover.invalid && (recover.dirty || recover.touched)">Invalid e-mail.</small>
@@ -82,8 +91,7 @@
                         <a [routerLink]="''">Enter</a>
                     </p>
                     <br>
-                    <button class="btn btn-lg my-5"
-                        (click)="handlePasswdRecover()">
+                    <button class="btn btn-lg my-5" [disabled]="!recoverForm.valid">
                         Recover password
                     </button>
                 </form>
