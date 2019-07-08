@@ -1,7 +1,8 @@
 *{
     font-family: 'Varela Round', sans-serif !important;
-    transition: .6s all ease-out;
+    transition: .75s all ease-out;
     -webkit-font-smoothing: antialiased !important;
+    user-select: none;
 }
 
 html, body{
@@ -88,21 +89,27 @@ div#login-wrapper{
             font-family: Arial;
         }
 
-        form input{
-            border: 1px solid #e7e8ec;
-            background-color: white;
-            border-radius: 6px;
+        form{
+            input{
+                border: 1px solid #e7e8ec;
+                background-color: white;
+                border-radius: 6px;
 
-            &::-webkit-input-placeholder { /* Edge */
-                @include placeholder;
-            }
+                &::-webkit-input-placeholder { /* Edge */
+                    @include placeholder;
+                }
 
-            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                @include placeholder;
-            }
+                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    @include placeholder;
+                }
 
-            &::placeholder {
-                @include placeholder;
+                &::placeholder {
+                    @include placeholder;
+                }
+
+                &.is-invalid{
+                    border-color: #dc3545;
+                }
             }
         }
 

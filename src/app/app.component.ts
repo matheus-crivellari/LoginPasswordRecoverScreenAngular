@@ -1,31 +1,83 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Login';
+    title = 'Login';
+    user: any = {
+      email: '',
+      password: '',
+    };
 
-  constructor(private router:Router) {
+    loginForm:FormGroup = null;
+    recoverForm:FormGroup = null;
 
-  }
+    constructor(
+        private router: Router,
+        private formBuilder: FormBuilder
+        ) {
 
-  ngOnInit() {
-      document.title = this.title;
-  }
+    }
 
-  get route() {
-      return this.router.url;
-  }
+    ngOnInit() {
+        document.title = this.title;
 
-  handleLogin() {
+        this.loginForm = this.formBuilder.group({
+            'email': new FormControl(this.user.email, [
+                Validators.required,
+                Validators.email,
+                Validators.minLength(10),
+            ]),
+            'password': new FormControl(this.user.password, [
+                Validators.required,
+                Validators.minLength(6),
+            ]),
+        });
 
-  }
+        this.recoverForm = this.formBuilder.group({
+            'email': new FormControl(this.user.email, [
+                Validators.required,
+                Validators.email,
+                Validators.minLength(10),
+            ]),
+        })
 
-  handlePasswdRecover() {
+    }
 
-  }
+    get route() {
+        return this.router.url;
+    }
+
+    get email() {
+        return this.loginForm.get('email');
+    }
+
+    get password(){
+        return this.loginForm.get('password');
+    }
+
+    get recover(){
+        return this.recoverForm.get('email');
+    }
+
+    handleLogin(value) {
+
+        if(!this.loginForm.touched || this.loginForm.invalid)
+            return;
+
+        console.log('handleLogin');
+    }
+
+    handlePasswdRecover(value) {
+
+        if(!this.recoverForm.touched || this.recoverForm.invalid)
+            return;
+
+        console.log('handlePasswdRecover');
+    }
 }

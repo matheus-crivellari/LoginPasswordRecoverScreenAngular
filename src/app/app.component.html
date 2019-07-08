@@ -7,24 +7,40 @@
         <div class="form-wrapper">
           <div class="wrapper">
             <div class="login">
-                <form (submit)="$event.preventDefault()">
+                <form [formGroup]="loginForm" (submit)="handleLogin(loginForm.value)">
                     <h2 class="mb-2">Enter</h2>
                     <br>
-                    <div class="form-group">
-                        <input placeholder="e-mail" type="email" name="email"
+                    <div class="form-group mb-3">
+                        <input
+                            required
+                            type="text"
+                            placeholder="e-mail"
+                            formControlName="email"
                             id="email"
-                            class="form-control p-4 mb-3 login-email">
+                            class="form-control p-4 login-email"
+                            [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+                            autocomplete="false"
+                            >
+                            <small class="text-left invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">Invalid e-mail.</small>
                     </div>
-                    <div class="form-group">
-                        <input placeholder="password" type="password" name=""
+                    <div class="form-group mb-5">
+                        <input
+                            required
+                            type="password"
+                            placeholder="password"
+                            formControlName="password"
                             id="password"
-                            class="form-control p-4 login-password mb-5">
+                            class="form-control p-4 login-password"
+                            [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+                            autocomplete="false"
+                            >
+                            <small class="text-left invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">Invalid password.</small>
                     </div>
                     <p>
                         <a [routerLink]="'/recover-passwd'">Password recover?</a>
                     </p>
                     <br>
-                    <button class="btn btn-lg mb-5" (click)="handleLogin()">
+                    <button class="btn btn-lg mb-5">
                         Enter
                     </button>
                     <br>
@@ -41,17 +57,25 @@
           </div>
           <div class="wrapper">
             <div class="recover">
-                <form (submit)="$event.preventDefault()">
+                <form [formGroup]="recoverForm" (submit)="handlePasswdRecover(recoverForm.value)">
                     <h2 class="mb-3">Forgot password</h2>
                     <br>
                     <p class="mb-3">
                       Type your e-mail and we'll send you an e-mail telling
                       you how to recover it.
                     </p>
-                    <div class="form-group">
-                        <input placeholder="e-mail" type="email" name="recover"
-                            id="recoverEmail"
-                            class="form-control p-4 mb-3 login-email">
+                    <div class="form-group mb-3">
+                        <input
+                            required
+                            type="text"
+                            placeholder="e-mail"
+                            formControlName="email"
+                            id="email"
+                            class="form-control p-4 login-email"
+                            [ngClass]="{'is-invalid': recover.invalid && (recover.dirty || recover.touched)}"
+                            autocomplete="false"
+                            >
+                            <small class="text-left invalid-feedback" *ngIf="recover.invalid && (recover.dirty || recover.touched)">Invalid e-mail.</small>
                     </div>
                     <p class="my-3">
                         Remembered your password?
