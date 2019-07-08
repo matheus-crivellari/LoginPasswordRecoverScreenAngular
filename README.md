@@ -2,7 +2,7 @@
 
 This project is a mocked Login / Password Recover Screen generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6 developed using SCSS.
 
-![]()
+![Animated Sample](https://raw.githubusercontent.com/matheus-crivellari/LoginPasswordRecoverScreenAngular/master/docs/LoginPasswordRecoverScreenAngular.gif?token=ABSIIQPHZ6NG42OZ4NLB3F25EOE7S)
 
 ## Development server
 
