@@ -22,7 +22,7 @@
                                 'is-invalid': email.invalid && (email.dirty || email.touched),
                                 'is-valid': email.valid
                             }"
-                            autocomplete="false"
+                            autocomplete="off"
                             >
                             <small class="text-left invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">Invalid e-mail.</small>
                     </div>
@@ -38,7 +38,7 @@
                                 'is-invalid': password.invalid && (password.dirty || password.touched),
                                 'is-valid': password.valid
                             }"
-                            autocomplete="false"
+                            autocomplete="off"
                             >
                             <small class="text-left invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">Invalid password.</small>
                     </div>
@@ -82,7 +82,7 @@
                                 'is-invalid': recover.invalid && (recover.dirty || recover.touched),
                                 'is-valid': recover.valid
                             }"
-                            autocomplete="false"
+                            autocomplete="off"
                             >
                             <small class="text-left invalid-feedback" *ngIf="recover.invalid && (recover.dirty || recover.touched)">Invalid e-mail.</small>
                     </div>
