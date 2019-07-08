@@ -25,7 +25,6 @@ export class AppComponent {
     }
 
     ngOnInit() {
-        document.title = this.title;
 
         this.loginForm = this.formBuilder.group({
             'email': new FormControl(this.user.email, [
@@ -50,7 +49,14 @@ export class AppComponent {
     }
 
     get route() {
-        return this.router.url;
+        const rt = this.router.url;
+
+        if(rt == '/recover-passwd')
+            document.title = this.title = 'Password recovery';
+        else
+            document.title = this.title = 'Login';
+
+        return rt;
     }
 
     get email() {
