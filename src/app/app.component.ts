@@ -21,9 +21,11 @@ export class AppComponent {
         private router: Router,
         private formBuilder: FormBuilder
         ) {
-
     }
 
+    /**
+     * Event handler fired when component is initialized
+     */
     ngOnInit() {
 
         this.loginForm = this.formBuilder.group({
@@ -48,6 +50,10 @@ export class AppComponent {
 
     }
 
+    /**
+     * Returns current route for using in view
+     * Also changes document title
+     */
     get route() {
         const rt = this.router.url;
 
@@ -59,18 +65,33 @@ export class AppComponent {
         return rt;
     }
 
+    /**
+     * Returns login form's email field
+     */
     get email() {
         return this.loginForm.get('email');
     }
 
+    /**
+     * Returns login form's password field
+     */
     get password(){
         return this.loginForm.get('password');
     }
 
+    /**
+     * Returns password recovery form's email field
+     */
     get recover(){
         return this.recoverForm.get('email');
     }
 
+    /**
+     * Method responsible for handling
+     * the login form's submit event
+     *
+     * @param value Login form's value
+     */
     handleLogin(value) {
 
         if(!this.loginForm.touched || this.loginForm.invalid)
@@ -79,6 +100,12 @@ export class AppComponent {
         console.log('handleLogin');
     }
 
+    /**
+     * Method responsible for handling the
+     * password recovery form's submit event
+     *
+     * @param value Password recovery form's value
+     */
     handlePasswdRecover(value) {
 
         if(!this.recoverForm.touched || this.recoverForm.invalid)
